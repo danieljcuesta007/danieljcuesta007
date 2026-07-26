@@ -2,8 +2,8 @@
 
 <p>
   I build small, local-first tools that solve a problem I actually have — then keep
-  using them. Most run on <code>localhost</code>, hold their data in plain files, and
-  depend on nothing you have to install.
+  using them. Most run on <code>localhost</code>, keep their data in plain files you own,
+  and install with a single <code>git clone</code>.
 </p>
 
 <p>
@@ -26,7 +26,13 @@ Bilingual auto-detection between English and Spanish, a personal dictionary that
 the names it keeps getting wrong, and a dashboard that measures time saved rather than
 words typed. Measured at 1.78% word error rate against a hand-built evaluation corpus.
 
-`Rust` · `Swift` · `Whisper` · `Core Audio`
+Architected local-first and **cloud-optional**: the on-device path is the reliability
+floor, and a Pro tier (OAuth accounts, zero-retention cloud inference, end-to-end
+encrypted settings sync) layers higher-accuracy models on top for users who opt in —
+degrading silently back to local whenever the network does. Every utterance shows you
+which path it actually took.
+
+`Rust` · `Swift` · `Whisper` · `Metal` · `SQLCipher`
 
 **[Source available →](https://github.com/danieljcuesta007/cadence)**
 
@@ -38,8 +44,8 @@ words typed. Measured at 1.78% word error rate against a hand-built evaluation c
 
 ## Local dashboards
 
-Each of these is one Python file and one HTML file, served on localhost, using only the
-standard library. No framework, no build step, no account.
+Each is one Python file and one HTML file, served on localhost from the standard library
+alone — clone it and it runs, on any Mac, at any Python 3.8 or later.
 
 <table>
 <tr>
@@ -56,7 +62,8 @@ migration — instead of the three disconnected charts each platform shows you, 
 starting at zero on the day you arrived.
 
 YouTube syncs through the Data API on a daily schedule. The rest are entered by hand,
-deliberately: five seconds of typing gets the same trend without scraping anything.
+deliberately — five seconds of typing earns the same trend while staying inside every
+platform's terms of service.
 
 `Python` · `SVG` · `YouTube Data API`
 
@@ -95,7 +102,8 @@ Apple gives you no folders and no way to sort unread conversations oldest to new
 message from three weeks ago sits below one from this morning forever. This reads the
 Messages database directly, sorts by genuine age, and opens the real thread when you click.
 
-Strictly read-only. It never sends anything.
+Strictly read-only against the Messages database — it observes and sorts, and leaves
+every conversation exactly as it found it.
 
 `Python` · `SQLite` · `AppleScript`
 
@@ -128,4 +136,6 @@ icon that sits correctly beside system icons and one that looks subtly wrong.
 
 ---
 
-<sub>Source for the dashboards and icon toolkit is kept private. Cadence is open.</sub>
+<sub><b>Cadence is open source</b> — read it, build it, run it:
+<a href="https://github.com/danieljcuesta007/cadence">github.com/danieljcuesta007/cadence</a>.
+The dashboards run on my own machine daily; source available on request.</sub>
