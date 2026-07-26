@@ -16,7 +16,7 @@
 
 <table>
 <tr>
-<td width="120" valign="top"><img src="icons/cadence.png" width="100" alt="Cadence icon"></td>
+<td width="120" valign="top"><img src="https://raw.githubusercontent.com/danieljcuesta007/danieljcuesta007/main/icons/cadence.png" width="100" alt="Cadence icon"></td>
 <td valign="top">
 
 **Dictation for macOS that runs entirely on your machine.** Rust core, Swift interface,
@@ -43,7 +43,7 @@ standard library. No framework, no build step, no account.
 
 <table>
 <tr>
-<td width="120" valign="top"><img src="icons/social-dashboard.png" width="100" alt="Social Dashboard icon"></td>
+<td width="120" valign="top"><img src="https://raw.githubusercontent.com/danieljcuesta007/danieljcuesta007/main/icons/social-dashboard.png" width="100" alt="Social Dashboard icon"></td>
 <td valign="top">
 
 ### Social Dashboard
@@ -64,7 +64,7 @@ deliberately: five seconds of typing gets the same trend without scraping anythi
 </tr>
 
 <tr>
-<td width="120" valign="top"><img src="icons/investing.png" width="100" alt="Investing icon"></td>
+<td width="120" valign="top"><img src="https://raw.githubusercontent.com/danieljcuesta007/danieljcuesta007/main/icons/investing.png" width="100" alt="Investing icon"></td>
 <td valign="top">
 
 ### Investing Dashboard
@@ -84,7 +84,7 @@ browser reset and move with the folder.
 </tr>
 
 <tr>
-<td width="120" valign="top"><img src="icons/msgtriage.png" width="100" alt="MsgTriage icon"></td>
+<td width="120" valign="top"><img src="https://raw.githubusercontent.com/danieljcuesta007/danieljcuesta007/main/icons/msgtriage.png" width="100" alt="MsgTriage icon"></td>
 <td valign="top">
 
 ### Message Triage
@@ -109,7 +109,7 @@ Strictly read-only. It never sends anything.
 
 <table>
 <tr>
-<td width="120" valign="top"><img src="icons/travel-map.png" width="100" alt="Icon toolkit"></td>
+<td width="120" valign="top"><img src="https://raw.githubusercontent.com/danieljcuesta007/danieljcuesta007/main/icons/travel-map.png" width="100" alt="Icon toolkit"></td>
 <td valign="top">
 
 Generating macOS `.icns` app icons on a machine with no imaging libraries installed —
