@@ -4,7 +4,7 @@
   Writer of <b>Wednesdays Of Wisdom</b>, a weekly letter on Substack about faith, growth and
   living with intention, now 117 letters deep. Co-founder of <b>Addisuna Coffee Co.</b>, Ethiopian
   specialty coffee that puts children in Ethiopia through school. I engineer the platforms
-  both run on. University of Notre Dame alumnus, and an IBM Consulting SAP Practitioner (2026).
+  both run on. University of Notre Dame alumnus, IBM Consulting.
 </p>
 
 <p>
@@ -25,7 +25,7 @@
 <td valign="top">
 
 **A weekly letter on faith, growth and living with intention.** 117 letters published,
-every one illustrated, delivered every Wednesday on Substack with a 51% average open rate.
+every one illustrated, delivered every Wednesday on Substack.
 
 Each letter is built around one idea worth carrying through the week, drawn from scripture,
 the people I learn from, and the work of building a company. The full archive lives on my
@@ -123,7 +123,7 @@ Whisper for transcription, engineered so no audio ever leaves the device.
 
 Bilingual auto-detection between English and Spanish, a personal dictionary that fixes
 the names it keeps getting wrong, and a dashboard that measures time saved rather than
-words typed. Measured at 1.78% word error rate against a hand-built evaluation corpus.
+words typed.
 
 `Rust` · `Swift` · `Whisper` · `Metal` · `SQLCipher`
 
@@ -144,10 +144,9 @@ words typed. Measured at 1.78% word error rate against a hand-built evaluation c
 
 ### IBM Consulting
 
-Summer 2026 intern as an **SAP Practitioner**: client work, a team capstone called
-AskRX, and a portfolio of what I learned along the way.
+Client work, a team capstone called AskRX, and a portfolio of what I learned along the way.
 
-`SAP` · `Consulting` · `Client delivery`
+`Consulting` · `Client delivery`
 
 **[See the portfolio →](https://danieljcuesta007.github.io/ibmportfolio/)**
 
