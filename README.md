@@ -1,18 +1,47 @@
 <h1>Daniel Cuesta</h1>
 
 <p>
-  Co-founder of <b>Addisuna Coffee Co.</b> and writer of <b>Wednesdays Of Wisdom</b>, a weekly
-  letter on living with intention. Notre Dame alumnus. I also build small, local-first tools
-  that solve a problem I actually have, then keep using them.
+  Writer of <b>Wednesdays Of Wisdom</b>, a weekly letter on Substack about faith, growth and
+  living with intention, now 117 letters deep. Co-founder of <b>Addisuna Coffee Co.</b>, Ethiopian
+  specialty coffee that puts children in Ethiopia through school. I engineer the platforms
+  both run on. University of Notre Dame alumnus, and an IBM Consulting SAP Practitioner (2026).
 </p>
 
 <p>
+  <a href="https://danielcuesta007.substack.com"><b>Subscribe on Substack</b></a> ·
   <a href="https://danielcuesta007.com">danielcuesta007.com</a> ·
-  <a href="https://danielcuesta007.substack.com">Substack</a> ·
   <a href="https://www.linkedin.com/in/danielcuesta007/">LinkedIn</a> ·
   <a href="https://www.instagram.com/danieljcuesta007/">Instagram</a> ·
   <a href="https://www.youtube.com/@DanielCuesta007">YouTube</a>
 </p>
+
+---
+
+## Wednesdays Of Wisdom
+
+<table>
+<tr>
+<td width="120" valign="top"><img src="https://raw.githubusercontent.com/danieljcuesta007/danieljcuesta007/main/icons/letters.svg" width="100" alt="Letters icon"></td>
+<td valign="top">
+
+**A weekly letter on faith, growth and living with intention.** 117 letters published,
+every one illustrated, delivered every Wednesday on Substack with a 51% average open rate.
+
+Each letter is built around one idea worth carrying through the week, drawn from scripture,
+the people I learn from, and the work of building a company. The full archive lives on my
+own site, organised by theme and motif.
+
+The site is engineered from scratch: Astro on Cloudflare Pages, with site-wide search, a
+related-letters graph that links each letter to the ones it grew out of, and an original
+illustrated universe of characters behind the art.
+
+`Substack` · `Writing` · `Astro` · `Cloudflare Pages`
+
+**[Subscribe on Substack →](https://danielcuesta007.substack.com)** · **[Read the archive →](https://danielcuesta007.com)**
+
+</td>
+</tr>
+</table>
 
 ---
 
@@ -64,33 +93,7 @@ products, plus mobility support for three children who need it.
 
 ---
 
-## Writing
-
-<table>
-<tr>
-<td width="120" valign="top"><img src="https://raw.githubusercontent.com/danieljcuesta007/danieljcuesta007/main/icons/letters.svg" width="100" alt="Letters icon"></td>
-<td valign="top">
-
-### Wednesdays Of Wisdom
-
-A weekly letter on faith, growth and living with intention: **117 letters** and counting,
-each one illustrated, sent on Substack and archived on my own site.
-
-The site is a code-first rebuild of what used to be a Wix blog: Astro on Cloudflare Pages,
-with site-wide search, an archive organised by theme and motif, and a related-letters graph
-that links each letter to the ones it grew out of.
-
-`Astro` · `Cloudflare Pages` · `Substack`
-
-**[Read the letters →](https://danielcuesta007.com)**
-
-</td>
-</tr>
-</table>
-
----
-
-## Things I build
+## Engineering
 
 <table>
 <tr>
@@ -116,7 +119,7 @@ a branch and a pull request.
 ### Cadence
 
 **Dictation for macOS that runs entirely on your machine.** Rust core, Swift interface,
-Whisper for transcription, and no audio leaves the device.
+Whisper for transcription, engineered so no audio ever leaves the device.
 
 Bilingual auto-detection between English and Spanish, a personal dictionary that fixes
 the names it keeps getting wrong, and a dashboard that measures time saved rather than
