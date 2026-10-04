@@ -2,14 +2,15 @@
 
 <p>
   Writer of <b>Wednesdays Of Wisdom</b>, a weekly letter on Substack about faith, growth and
-  living with intention, now 117 letters deep. Co-founder of <b>Addisuna Coffee Co.</b>, Ethiopian
+  living with intention. Co-founder of <b>Addisuna Coffee Co.</b>, Ethiopian
   specialty coffee that puts children in Ethiopia through school. I engineer the platforms
   both run on. University of Notre Dame alumnus, IBM Consulting.
 </p>
 
 <p>
   <a href="https://danielcuesta007.substack.com"><b>Subscribe on Substack</b></a> ·
-  <a href="https://danielcuesta007.com">danielcuesta007.com</a> ·
+  <a href="https://danielcuesta007.com">Wednesdays Of Wisdom</a> ·
+  <a href="https://addisuna.com">Buy Ethiopian Specialty Coffee</a> ·
   <a href="https://www.linkedin.com/in/danielcuesta007/">LinkedIn</a> ·
   <a href="https://www.instagram.com/danieljcuesta007/">Instagram</a> ·
   <a href="https://www.youtube.com/@DanielCuesta007">YouTube</a>
@@ -24,8 +25,8 @@
 <td width="120" valign="top"><img src="https://raw.githubusercontent.com/danieljcuesta007/danieljcuesta007/main/icons/letters.svg" width="100" alt="Letters icon"></td>
 <td valign="top">
 
-**A weekly letter on faith, growth and living with intention.** 117 letters published,
-every one illustrated, delivered every Wednesday on Substack.
+**A weekly letter on faith, growth and living with intention.** Every letter illustrated,
+delivered every Wednesday on Substack.
 
 Each letter is built around one idea worth carrying through the week, drawn from scripture,
 the people I learn from, and the work of building a company. The full archive lives on my
