@@ -1,40 +1,133 @@
 <h1>Daniel Cuesta</h1>
 
 <p>
-  I build small, local-first tools that solve a problem I actually have — then keep
-  using them. Most run on <code>localhost</code>, keep their data in plain files you own,
-  and install with a single <code>git clone</code>.
+  Writer of <b>Wednesdays Of Wisdom</b>, a weekly letter on Substack about faith, growth and
+  living with intention, now 117 letters deep. Co-founder of <b>Addisuna Coffee Co.</b>, Ethiopian
+  specialty coffee that puts children in Ethiopia through school. I engineer the platforms
+  both run on. University of Notre Dame alumnus, and an IBM Consulting SAP Practitioner (2026).
 </p>
 
 <p>
-  <a href="https://danielcuesta007.com">danielcuesta007.com</a>
+  <a href="https://danielcuesta007.substack.com"><b>Subscribe on Substack</b></a> ·
+  <a href="https://danielcuesta007.com">danielcuesta007.com</a> ·
+  <a href="https://www.linkedin.com/in/danielcuesta007/">LinkedIn</a> ·
+  <a href="https://www.instagram.com/danieljcuesta007/">Instagram</a> ·
+  <a href="https://www.youtube.com/@DanielCuesta007">YouTube</a>
 </p>
 
 ---
 
-## Cadence
+## Wednesdays Of Wisdom
 
 <table>
 <tr>
-<td width="120" valign="top"><img src="https://raw.githubusercontent.com/danieljcuesta007/danieljcuesta007/main/icons/cadence.png" width="100" alt="Cadence icon"></td>
+<td width="120" valign="top"><img src="https://raw.githubusercontent.com/danieljcuesta007/danieljcuesta007/main/icons/letters.svg" width="100" alt="Letters icon"></td>
 <td valign="top">
 
+**A weekly letter on faith, growth and living with intention.** 117 letters published,
+every one illustrated, delivered every Wednesday on Substack with a 51% average open rate.
+
+Each letter is built around one idea worth carrying through the week, drawn from scripture,
+the people I learn from, and the work of building a company. The full archive lives on my
+own site, organised by theme and motif.
+
+The site is engineered from scratch: Astro on Cloudflare Pages, with site-wide search, a
+related-letters graph that links each letter to the ones it grew out of, and an original
+illustrated universe of characters behind the art.
+
+`Substack` · `Writing` · `Astro` · `Cloudflare Pages`
+
+**[Subscribe on Substack →](https://danielcuesta007.substack.com)** · **[Read the archive →](https://danielcuesta007.com)**
+
+</td>
+</tr>
+</table>
+
+---
+
+## Addisuna Coffee Co.
+
+<table>
+<tr>
+<td width="120" valign="top"><img src="https://raw.githubusercontent.com/danieljcuesta007/danieljcuesta007/main/icons/addisuna.svg" width="100" alt="Addisuna icon"></td>
+<td valign="top">
+
+**Ethiopian specialty coffee that pays for school.** Co-founded with
+[Izaiah Steury](https://github.com/izaiahsteury) while we were students at Notre Dame.
+
+Two flagship roasts launched in March 2026: **Sunbloom**, a medium roast, and **Daybreak**,
+a light roast. The beans come from Ethiopia and are roasted locally in partnership with
+Quad Coffee Lab.
+
+I run the brand, the website and the systems behind them: the Shopify storefront, its
+search and AI visibility, and the books.
+
+`Founder` · `Brand` · `Shopify` · `SEO`
+
+**[Shop the roasts →](https://addisuna.com)**
+
+</td>
+</tr>
+</table>
+
+---
+
+## Education sponsorship
+
+<table>
+<tr>
+<td width="120" valign="top"><img src="https://raw.githubusercontent.com/danieljcuesta007/danieljcuesta007/main/icons/education.svg" width="100" alt="Education icon"></td>
+<td valign="top">
+
+### Addisuna Youth Foundation
+
+Every bag sold funds school for children in Ethiopia. For the 2026 school year that is
+**18 students**, each supplied with textbooks, school supplies, uniforms and hygiene
+products, plus mobility support for three children who need it.
+
+`Impact` · `Ethiopia` · `Education`
+
+</td>
+</tr>
+</table>
+
+---
+
+## Engineering
+
+<table>
+<tr>
+<td width="120" valign="top"><img src="https://raw.githubusercontent.com/danieljcuesta007/danieljcuesta007/main/icons/command-center.svg" width="100" alt="Command Center icon"></td>
+<td valign="top">
+
+### Addisuna Command Center
+
+The company's single source of truth for to-dos, people, finances and inventory, built
+and maintained with Izaiah. It runs on Cloudflare Pages and D1 behind single sign-on,
+reconciles against the bank, and includes an investor room. Every change ships through
+a branch and a pull request.
+
+`Cloudflare Pages` · `D1` · `JavaScript` · `Python`
+
+</td>
+</tr>
+
+<tr>
+<td width="120" valign="top"><img src="https://raw.githubusercontent.com/danieljcuesta007/danieljcuesta007/main/icons/cadence.svg" width="100" alt="Cadence icon"></td>
+<td valign="top">
+
+### Cadence
+
 **Dictation for macOS that runs entirely on your machine.** Rust core, Swift interface,
-Whisper for transcription — no audio leaves the device.
+Whisper for transcription, engineered so no audio ever leaves the device.
 
 Bilingual auto-detection between English and Spanish, a personal dictionary that fixes
 the names it keeps getting wrong, and a dashboard that measures time saved rather than
 words typed. Measured at 1.78% word error rate against a hand-built evaluation corpus.
 
-Architected local-first and **cloud-optional**: the on-device path is the reliability
-floor, and a Pro tier (OAuth accounts, zero-retention cloud inference, end-to-end
-encrypted settings sync) layers higher-accuracy models on top for users who opt in —
-degrading silently back to local whenever the network does. Every utterance shows you
-which path it actually took.
-
 `Rust` · `Swift` · `Whisper` · `Metal` · `SQLCipher`
 
-**[Source available →](https://github.com/danieljcuesta007/cadence)**
+**[Source on GitHub →](https://github.com/danieljcuesta007/cadence)**
 
 </td>
 </tr>
@@ -42,70 +135,21 @@ which path it actually took.
 
 ---
 
-## Local dashboards
-
-Each is one Python file and one HTML file, served on localhost from the standard library
-alone — clone it and it runs, on any Mac, at any Python 3.8 or later.
+## Consulting
 
 <table>
 <tr>
-<td width="120" valign="top"><img src="https://raw.githubusercontent.com/danieljcuesta007/danieljcuesta007/main/icons/social-dashboard.png" width="100" alt="Social Dashboard icon"></td>
+<td width="120" valign="top"><img src="https://raw.githubusercontent.com/danieljcuesta007/danieljcuesta007/main/icons/consulting.svg" width="100" alt="Consulting icon"></td>
 <td valign="top">
 
-### Social Dashboard
+### IBM Consulting
 
-Audience growth across LinkedIn, Instagram, YouTube and an email newsletter.
+Summer 2026 intern as an **SAP Practitioner**: client work, a team capstone called
+AskRX, and a portfolio of what I learned along the way.
 
-The interesting part is the newsletter chart: a subscriber list that moved between three
-providers stays a **single continuous series**, colour-coded by era with markers at each
-migration — instead of the three disconnected charts each platform shows you, all
-starting at zero on the day you arrived.
+`SAP` · `Consulting` · `Client delivery`
 
-YouTube syncs through the Data API on a daily schedule. The rest are entered by hand,
-deliberately — five seconds of typing earns the same trend while staying inside every
-platform's terms of service.
-
-`Python` · `SVG` · `YouTube Data API`
-
-</td>
-</tr>
-
-<tr>
-<td width="120" valign="top"><img src="https://raw.githubusercontent.com/danieljcuesta007/danieljcuesta007/main/icons/investing.png" width="100" alt="Investing icon"></td>
-<td valign="top">
-
-### Investing Dashboard
-
-Portfolio and watchlist with live quotes, importing straight from a Fidelity positions CSV.
-
-Quotes fall back across two providers, so one endpoint changing its shape doesn't take the
-dashboard down. Money-market funds like `SPAXX` aren't quoted by market feeds at all, so
-they're priced at NAV — otherwise your cash silently vanishes from the total.
-
-Holdings live in a JSON file next to the server, not in browser storage, so they survive a
-browser reset and move with the folder.
-
-`Python` · `Atomic writes` · `Multi-source failover`
-
-</td>
-</tr>
-
-<tr>
-<td width="120" valign="top"><img src="https://raw.githubusercontent.com/danieljcuesta007/danieljcuesta007/main/icons/msgtriage.png" width="100" alt="MsgTriage icon"></td>
-<td valign="top">
-
-### Message Triage
-
-An oldest-unread-first jump list for macOS Messages.
-
-Apple gives you no folders and no way to sort unread conversations oldest to newest, so a
-message from three weeks ago sits below one from this morning forever. This reads the
-Messages database directly, sorts by genuine age, and opens the real thread when you click.
-
-Strictly read-only against the Messages database — it observes and sorts, and leaves
-every conversation exactly as it found it.
-
-`Python` · `SQLite` · `AppleScript`
+**[See the portfolio →](https://danieljcuesta007.github.io/ibmportfolio/)**
 
 </td>
 </tr>
@@ -113,29 +157,5 @@ every conversation exactly as it found it.
 
 ---
 
-## Icon toolkit
-
-<table>
-<tr>
-<td width="120" valign="top"><img src="https://raw.githubusercontent.com/danieljcuesta007/danieljcuesta007/main/icons/travel-map.png" width="100" alt="Icon toolkit"></td>
-<td valign="top">
-
-Generating macOS `.icns` app icons on a machine with no imaging libraries installed —
-no Pillow, no ImageMagick, no admin rights.
-
-The pipeline is SVG, rendered through headless Chrome, downsampled with `sips`, packed by
-`iconutil`. Icons are drawn on Apple's own grid: an 824×824 body on a 1024 canvas, shaped
-as a true superellipse rather than a rounded rectangle, which is the difference between an
-icon that sits correctly beside system icons and one that looks subtly wrong.
-
-`Python` · `SVG` · `Headless Chrome`
-
-</td>
-</tr>
-</table>
-
----
-
-<sub><b>Cadence is open source</b> — read it, build it, run it:
-<a href="https://github.com/danieljcuesta007/cadence">github.com/danieljcuesta007/cadence</a>.
-The dashboards run on my own machine daily; source available on request.</sub>
+<sub><b>Read the story</b>:
+<a href="https://irishrover.net/2026/09/addisuna-coffee-co-sponsors-18-students-in-ethiopia/">Student-founded coffee company sponsors 18 students in Ethiopia</a>, <i>The Irish Rover</i>.</sub>
