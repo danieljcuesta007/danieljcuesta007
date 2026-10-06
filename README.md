@@ -15,6 +15,13 @@
   <a href="https://www.youtube.com/@DanielCuesta007">YouTube</a>
 </p>
 
+<a href="https://github.com/danieljcuesta007">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/danieljcuesta007/danieljcuesta007/output/contributions-dark.svg">
+    <img src="https://raw.githubusercontent.com/danieljcuesta007/danieljcuesta007/output/contributions-light.svg" width="100%" alt="GitHub contributions in the last year">
+  </picture>
+</a>
+
 ---
 
 ## Wednesdays Of Wisdom
