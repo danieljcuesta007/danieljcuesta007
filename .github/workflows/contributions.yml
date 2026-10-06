@@ -13,6 +13,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: contributions
+  cancel-in-progress: true
+
 jobs:
   draw:
     runs-on: ubuntu-latest
