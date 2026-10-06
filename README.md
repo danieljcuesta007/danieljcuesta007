@@ -1,8 +1,7 @@
 <h1>Daniel Cuesta</h1>
 
 <p>
-  Writer of <b>Wednesdays Of Wisdom</b>, a weekly letter on Substack about faith, growth and
-  living with intention. Co-founder of <b>Addisuna Coffee Co.</b>, Ethiopian
+  Author of <b>Wednesdays Of Wisdom</b>. Co-founder of <b>Addisuna Coffee Co.</b>, Ethiopian
   specialty coffee that puts children in Ethiopia through school. I engineer the platforms
   both run on. University of Notre Dame alumnus, IBM Consulting.
 </p>
