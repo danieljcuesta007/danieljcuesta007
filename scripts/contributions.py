@@ -36,19 +36,22 @@ query($login: String!) {
 THEMES = {
     "light": {
         "levels": ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"],
-        "text": "#1f2328",
-        "muted": "#59636e",
+        "text": "#1f2328", "muted": "#59636e", "accent": "#1a7f37",
+        "card": "#ffffff", "border": "#d1d9e0", "rule": "#e6eaef",
     },
     "dark": {
         "levels": ["#151b23", "#033a16", "#196c2e", "#2ea043", "#56d364"],
-        "text": "#f0f6fc",
-        "muted": "#9198a1",
+        "text": "#f0f6fc", "muted": "#9198a1", "accent": "#3fb950",
+        "card": "#0d1117", "border": "#3d444d", "rule": "#262c36",
     },
 }
 
 CELL, GAP = 11, 3
 STEP = CELL + GAP
-LEFT, TOP = 32, 44  # room for weekday labels and the title + month row
+PAD = 24          # card padding
+AXIS = 32         # weekday label column
+HEAD = 56         # title + month row above the grid
+STATS = 74        # stat columns below the grid
 FONT = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
 
 
@@ -87,7 +90,25 @@ def quartiles(counts):
     nz = sorted(c for c in counts if c > 0)
     if not nz:
         return [0, 0, 0]
-    return [nz[int(len(nz) * q) - 1 if int(len(nz) * q) else 0] for q in (0.25, 0.5, 0.75)]
+    return [nz[max(int(len(nz) * q) - 1, 0)] for q in (0.25, 0.5, 0.75)]
+
+
+def stats(days):
+    """Longest and current streak, busiest day, and active days."""
+    longest = run = 0
+    for d in days:
+        run = run + 1 if d["contributionCount"] else 0
+        longest = max(longest, run)
+    current = 0
+    # Today may not have a contribution yet; don't let that break the streak.
+    tail = days[:-1] if days and not days[-1]["contributionCount"] else days
+    for d in reversed(tail):
+        if not d["contributionCount"]:
+            break
+        current += 1
+    best = max(days, key=lambda d: d["contributionCount"])
+    active = sum(1 for d in days if d["contributionCount"])
+    return longest, current, best, active
 
 
 def render(cal, theme):
@@ -95,49 +116,82 @@ def render(cal, theme):
     weeks = cal["weeks"]
     days = [d for w in weeks for d in w["contributionDays"]]
     cuts = quartiles([d["contributionCount"] for d in days])
-    width = LEFT + len(weeks) * STEP
-    height = TOP + 7 * STEP + 22
+    longest, current, best, active = stats(days)
+
+    gx, gy = PAD + AXIS, PAD + HEAD           # grid origin
+    width = gx + len(weeks) * STEP - GAP + PAD
+    grid_bottom = gy + 7 * STEP - GAP
+    height = grid_bottom + 28 + STATS + PAD
+
+    def text(x, y, body, size=10, fill=t["muted"], weight=400, anchor="start"):
+        return (f'<text x="{x}" y="{y}" font-size="{size}" font-weight="{weight}" '
+                f'fill="{fill}" text-anchor="{anchor}">{body}</text>')
+
+    first = dt.date.fromisoformat(days[0]["date"])
+    last = dt.date.fromisoformat(days[-1]["date"])
+    span = f'{first.strftime("%b %Y")} – {last.strftime("%b %Y")}'
 
     out = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
         f'viewBox="0 0 {width} {height}" font-family="{FONT}" role="img" '
         f'aria-label="{cal["totalContributions"]:,} contributions in the last year">',
-        f'<text x="0" y="14" font-size="14" font-weight="600" fill="{t["text"]}">'
-        f'{cal["totalContributions"]:,} contributions in the last year</text>',
+        f'<rect x="0.5" y="0.5" width="{width - 1}" height="{height - 1}" rx="12" '
+        f'fill="{t["card"]}" stroke="{t["border"]}"/>',
+        text(PAD, PAD + 14, "Contributions", 15, t["text"], 600),
+        text(width - PAD, PAD + 14, span, 11, anchor="end"),
     ]
 
     # Month labels above the first column that starts a new month.
     last_month = None
     for i, w in enumerate(weeks):
-        first = dt.date.fromisoformat(w["contributionDays"][0]["date"])
-        if first.month != last_month and i < len(weeks) - 2:
-            if last_month is not None or first.day <= 7:
-                out.append(f'<text x="{LEFT + i * STEP}" y="{TOP - 8}" font-size="10" '
-                           f'fill="{t["muted"]}">{first.strftime("%b")}</text>')
-            last_month = first.month
+        d0 = dt.date.fromisoformat(w["contributionDays"][0]["date"])
+        if d0.month != last_month and i < len(weeks) - 2:
+            if last_month is not None or d0.day <= 7:
+                out.append(text(gx + i * STEP, gy - 9, d0.strftime("%b")))
+            last_month = d0.month
 
     for row, name in ((1, "Mon"), (3, "Wed"), (5, "Fri")):
-        out.append(f'<text x="0" y="{TOP + row * STEP + CELL - 2}" font-size="10" '
-                   f'fill="{t["muted"]}">{name}</text>')
+        out.append(text(PAD, gy + row * STEP + CELL - 2, name))
 
     for i, w in enumerate(weeks):
         for d in w["contributionDays"]:
             n = d["contributionCount"]
             out.append(
-                f'<rect x="{LEFT + i * STEP}" y="{TOP + d["weekday"] * STEP}" '
+                f'<rect x="{gx + i * STEP}" y="{gy + d["weekday"] * STEP}" '
                 f'width="{CELL}" height="{CELL}" rx="2" '
                 f'fill="{t["levels"][level(n, cuts)]}">'
                 f'<title>{n} on {d["date"]}</title></rect>')
 
-    # Less → More legend, bottom right, like GitHub's.
-    ly = TOP + 7 * STEP + 8
-    lx = width - 5 * STEP - 30
-    out.append(f'<text x="{lx - 28}" y="{ly + 9}" font-size="10" fill="{t["muted"]}">Less</text>')
+    # Less → More legend under the grid, right-aligned like GitHub's.
+    ly = grid_bottom + 10
+    lx = width - PAD - 5 * STEP - 26
+    out.append(text(lx - 6, ly + 9, "Less", anchor="end"))
     for k, c in enumerate(t["levels"]):
         out.append(f'<rect x="{lx + k * STEP}" y="{ly}" width="{CELL}" height="{CELL}" '
                    f'rx="2" fill="{c}"/>')
-    out.append(f'<text x="{lx + 5 * STEP + 4}" y="{ly + 9}" font-size="10" '
-               f'fill="{t["muted"]}">More</text>')
+    out.append(text(lx + 5 * STEP + 2, ly + 9, "More"))
+
+    # Stat columns, divided by hairlines.
+    sy = grid_bottom + 28
+    out.append(f'<line x1="{PAD}" y1="{sy}" x2="{width - PAD}" y2="{sy}" stroke="{t["rule"]}"/>')
+    best_day = dt.date.fromisoformat(best["date"]).strftime("%b %-d")
+    cols = [
+        (f'{cal["totalContributions"]:,}', "contributions"),
+        (f"{current}", "day streak, current"),
+        (f"{longest}", "day streak, longest"),
+        (f"{active}", "active days"),
+        (f'{best["contributionCount"]}', f"busiest day, {best_day}"),
+    ]
+    colw = (width - 2 * PAD) / len(cols)
+    for k, (num, label) in enumerate(cols):
+        cx = PAD + k * colw
+        if k:
+            out.append(f'<line x1="{cx:.1f}" y1="{sy + 16}" x2="{cx:.1f}" y2="{sy + STATS - 6}" '
+                       f'stroke="{t["rule"]}"/>')
+        mid = cx + colw / 2
+        out.append(text(f"{mid:.1f}", sy + 42, num, 24, t["accent"], 600, "middle"))
+        out.append(text(f"{mid:.1f}", sy + 62, label, 11, anchor="middle"))
+
     out.append("</svg>")
     return "\n".join(out) + "\n"
 
