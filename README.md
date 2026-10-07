@@ -1,8 +1,8 @@
 <h1>Daniel Cuesta</h1>
 
 <p>
-  Author of <b>Wednesdays Of Wisdom</b>, a weekly newsletter focused on timeless principles for daily action. Co-founder of <b>Addisuna Coffee Co.</b>, an Ethiopian
-  specialty coffee company sponsoring children's education in Ethiopia. University of Notre Dame alumnus (Go Irish ☘️). Based in New York City. IBM Consulting.
+  Author of <b>Wednesdays Of Wisdom</b> ✨, a weekly newsletter focused on timeless principles for daily action. Co-founder of <b>Addisuna Coffee Co.</b> ☕️, an Ethiopian
+  specialty coffee company sponsoring children's education in Ethiopia. University of Notre Dame alumnus (Go Irish ☘️). Currently operating and building our office in New York, New York 🗽. _Growing The Good In Business_ with @IBM Consulting.
 </p>
 
 <p>
