@@ -12,7 +12,9 @@ Stdlib only. Needs a GitHub token: $GITHUB_TOKEN, else `gh auth token`.
 
 import argparse
 import datetime as dt
+import html
 import json
+import re
 import os
 import subprocess
 import sys
@@ -51,8 +53,32 @@ STEP = CELL + GAP
 PAD = 24          # card padding
 AXIS = 32         # weekday label column
 HEAD = 56         # title + month row above the grid
-STATS = 74        # stat columns below the grid
+STATS = 74        # stat columns below the grid (no activity chart)
+BAND = 200        # stats grid + activity chart below the grid
 FONT = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
+
+
+def activity(login):
+    """GitHub's own Commits / PRs / Issues / Code review split for the last year.
+
+    The API only breaks down public work by type, so this reads the percentages
+    from the fragment the profile page lazy-loads. It isn't a documented API,
+    so on any failure the card simply leaves the chart out.
+    """
+    url = (f"https://github.com/{login}?action=show&controller=profiles"
+           f"&tab=contributions&user_id={login}")
+    req = urllib.request.Request(url, headers={"X-Requested-With": "XMLHttpRequest",
+                                               "User-Agent": "profile-contributions"})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            page = resp.read().decode("utf-8", "replace")
+        m = re.search(r'data-percentages="([^"]+)"', page)
+        pct = json.loads(html.unescape(m.group(1)))
+        return {k: int(pct.get(k, 0)) for k in
+                ("Commits", "Pull requests", "Issues", "Code review")}
+    except Exception as err:  # noqa: BLE001 - degrade, never fail the run
+        print(f"activity overview unavailable ({err}); drawing without it")
+        return None
 
 
 def token():
@@ -111,7 +137,30 @@ def stats(days):
     return longest, current, best, active
 
 
-def render(cal, theme):
+def radar(out, text, t, cx, cy, arm, pct):
+    """GitHub's activity cross: four arms, filled shape at each share."""
+    k = arm / 100
+    pts = [(cx - pct["Commits"] * k, cy), (cx, cy - pct["Code review"] * k),
+           (cx + pct["Issues"] * k, cy), (cx, cy + pct["Pull requests"] * k)]
+    for x1, y1, x2, y2 in ((cx - arm, cy, cx + arm, cy), (cx, cy - arm, cx, cy + arm)):
+        out.append(f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" '
+                   f'stroke="{t["levels"][4]}" stroke-width="2" stroke-linecap="round"/>')
+    out.append('<polygon points="' + " ".join(f"{x:.1f},{y:.1f}" for x, y in pts) +
+               f'" fill="{t["levels"][2]}" fill-opacity="0.45" stroke="{t["levels"][3]}" '
+               'stroke-width="1.5" stroke-linejoin="round"/>')
+    for x, y in pts:
+        if (x, y) != (cx, cy):
+            out.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="3.5" fill="{t["card"]}" '
+                       f'stroke="{t["levels"][4]}" stroke-width="2"/>')
+    pc = lambda n: f'<tspan font-weight="600" fill="{t["text"]}">{n}%</tspan>'
+    out.append(text(cx - arm - 10, cy + 4, f'{pc(pct["Commits"])} Commits', 11, anchor="end"))
+    out.append(text(cx + arm + 10, cy + 4, f'{pc(pct["Issues"])} Issues', 11))
+    out.append(text(cx, cy - arm - 10, f'{pc(pct["Code review"])} Code review', 11, anchor="middle"))
+    out.append(text(cx, cy + arm + 20, f'{pc(pct["Pull requests"])} Pull requests', 11,
+                    anchor="middle"))
+
+
+def render(cal, theme, pct=None):
     t = THEMES[theme]
     weeks = cal["weeks"]
     days = [d for w in weeks for d in w["contributionDays"]]
@@ -121,7 +170,7 @@ def render(cal, theme):
     gx, gy = PAD + AXIS, PAD + HEAD           # grid origin
     width = gx + len(weeks) * STEP - GAP + PAD
     grid_bottom = gy + 7 * STEP - GAP
-    height = grid_bottom + 28 + STATS + PAD
+    height = grid_bottom + 28 + (BAND if pct else STATS) + PAD
 
     def text(x, y, body, size=10, fill=t["muted"], weight=400, anchor="start"):
         return (f'<text x="{x}" y="{y}" font-size="{size}" font-weight="{weight}" '
@@ -171,10 +220,11 @@ def render(cal, theme):
                    f'rx="2" fill="{c}"/>')
     out.append(text(lx + 5 * STEP + 2, ly + 9, "More"))
 
-    # Stat columns, divided by hairlines.
+    # Stats, divided by hairlines; with the activity chart beside them when known.
     sy = grid_bottom + 28
     out.append(f'<line x1="{PAD}" y1="{sy}" x2="{width - PAD}" y2="{sy}" stroke="{t["rule"]}"/>')
     best_day = dt.date.fromisoformat(best["date"]).strftime("%b %-d")
+    best_week = max(sum(d["contributionCount"] for d in w["contributionDays"]) for w in weeks)
     cols = [
         (f'{cal["totalContributions"]:,}', "contributions"),
         (f"{current}", "day streak, current"),
@@ -182,15 +232,39 @@ def render(cal, theme):
         (f"{active}", "active days"),
         (f'{best["contributionCount"]}', f"busiest day, {best_day}"),
     ]
-    colw = (width - 2 * PAD) / len(cols)
-    for k, (num, label) in enumerate(cols):
-        cx = PAD + k * colw
-        if k:
-            out.append(f'<line x1="{cx:.1f}" y1="{sy + 16}" x2="{cx:.1f}" y2="{sy + STATS - 6}" '
-                       f'stroke="{t["rule"]}"/>')
-        mid = cx + colw / 2
-        out.append(text(f"{mid:.1f}", sy + 42, num, 24, t["accent"], 600, "middle"))
-        out.append(text(f"{mid:.1f}", sy + 62, label, 11, anchor="middle"))
+    inner = width - 2 * PAD
+
+    def stat(mid, top, num, label):
+        out.append(text(f"{mid:.1f}", top + 26, num, 24, t["accent"], 600, "middle"))
+        out.append(text(f"{mid:.1f}", top + 46, label, 11, anchor="middle"))
+
+    if not pct:
+        colw = inner / len(cols)
+        for k, (num, label) in enumerate(cols):
+            cx = PAD + k * colw
+            if k:
+                out.append(f'<line x1="{cx:.1f}" y1="{sy + 16}" x2="{cx:.1f}" '
+                           f'y2="{sy + STATS - 6}" stroke="{t["rule"]}"/>')
+            stat(cx + colw / 2, sy + 16, num, label)
+    else:
+        cols.append((f"{best_week}", "busiest week"))
+        left = inner * 0.58
+        colw, rowh = left / 3, (BAND - 16) / 2
+        for k, (num, label) in enumerate(cols):
+            r, c = divmod(k, 3)
+            top = sy + 8 + r * rowh
+            if c:
+                x = PAD + c * colw
+                out.append(f'<line x1="{x:.1f}" y1="{top + 18:.1f}" x2="{x:.1f}" '
+                           f'y2="{top + rowh - 12:.1f}" stroke="{t["rule"]}"/>')
+            stat(PAD + c * colw + colw / 2, top + 22, num, label)
+        out.append(f'<line x1="{PAD}" y1="{sy + 8 + rowh:.1f}" x2="{PAD + left:.1f}" '
+                   f'y2="{sy + 8 + rowh:.1f}" stroke="{t["rule"]}"/>')
+        dx = PAD + left
+        out.append(f'<line x1="{dx:.1f}" y1="{sy + 16}" x2="{dx:.1f}" y2="{sy + BAND - 8}" '
+                   f'stroke="{t["rule"]}"/>')
+        out.append(text(dx + 20, sy + 30, "Activity overview", 12, t["text"], 600))
+        radar(out, text, t, dx + (inner - left) / 2 + 8, sy + BAND / 2 + 12, 60, pct)
 
     out.append("</svg>")
     return "\n".join(out) + "\n"
@@ -204,10 +278,11 @@ def main():
     args = ap.parse_args()
 
     cal = fetch(args.login)
+    pct = activity(args.login)
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
     for theme in THEMES:
-        (out / f"contributions-{theme}.svg").write_text(render(cal, theme))
+        (out / f"contributions-{theme}.svg").write_text(render(cal, theme, pct))
     print(f"{cal['totalContributions']:,} contributions → {out}/contributions-{{light,dark}}.svg")
 
 

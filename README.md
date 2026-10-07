@@ -12,7 +12,8 @@
   <a href="https://addisuna.com">Buy Ethiopian Specialty Coffee</a> ·
   <a href="https://www.linkedin.com/in/danielcuesta007/">LinkedIn</a> ·
   <a href="https://www.instagram.com/danieljcuesta007/">Instagram</a> ·
-  <a href="https://www.youtube.com/@DanielCuesta007">YouTube</a>
+  <a href="https://www.youtube.com/@DanielCuesta007">YouTube</a> ·
+  <a href="mailto:wednesdaysofwisdom@danielcuesta007.com">Email</a>
 </p>
 
 <a href="https://github.com/danieljcuesta007">
@@ -181,6 +182,7 @@ Client work, a team capstone called AskRX, and a portfolio of what I learned alo
 - **Letters:** [subscribe on Substack](https://danielcuesta007.substack.com), or read the archive at [danielcuesta007.com](https://danielcuesta007.com)
 - **Coffee:** [addisuna.com](https://addisuna.com)
 - **LinkedIn:** [in/danielcuesta007](https://www.linkedin.com/in/danielcuesta007/)
+- **Email:** [wednesdaysofwisdom@danielcuesta007.com](mailto:wednesdaysofwisdom@danielcuesta007.com)
 
 ---
 
