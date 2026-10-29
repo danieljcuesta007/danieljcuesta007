@@ -15,10 +15,10 @@
   <a href="mailto:wednesdaysofwisdom@danielcuesta007.com">Email</a>
 </p>
 
-## Free to use
+## Latest from DC Labs
 
-Three tools I built for myself and give away. They're free, open source and local-first,
-and your data never leaves your machine.
+The tools I build for my own work, offered freely to yours. Each is open source and runs
+entirely on your machine, so your work stays private.
 
 <table>
 <tr>
