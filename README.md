@@ -15,6 +15,55 @@
   <a href="mailto:wednesdaysofwisdom@danielcuesta007.com">Email</a>
 </p>
 
+## Free to use
+
+Three tools I built for myself and give away. They're free, open source and local-first,
+and your data never leaves your machine.
+
+<table>
+<tr>
+<td width="96" valign="top"><a href="https://cadence-dictation.pages.dev"><img src="https://raw.githubusercontent.com/danieljcuesta007/cadence/main/site/art/mark.svg" width="80" alt="Cadence mark"></a></td>
+<td valign="top">
+
+### [Cadence](https://github.com/danieljcuesta007/cadence): dictation for Mac
+
+Hold a key, speak, let go, and the text lands wherever you're typing. Transcription runs
+entirely on your Mac and works offline, in English and Spanish.
+
+**[Download for Mac →](https://cadence-dictation.pages.dev)** · `Rust` · `Swift` · `Whisper`
+
+</td>
+</tr>
+<tr>
+<td width="96" valign="top"><a href="https://skeptic.pages.dev"><img src="https://raw.githubusercontent.com/danieljcuesta007/skeptic/main/docs/brand/skeptic-icon.svg" width="80" alt="Skeptic icon"></a></td>
+<td valign="top">
+
+### [Skeptic](https://github.com/danieljcuesta007/skeptic): your work, your memory, any AI
+
+When Claude runs out of quota mid-task, switch that session to Codex or Hermes without
+losing the thread. It picks up exactly where you left off.
+
+**[Get Skeptic →](https://skeptic.pages.dev)** · `macOS` · `Python` · `Claude Code` · `Codex`
+
+</td>
+</tr>
+<tr>
+<td width="96" valign="top"><a href="https://github.com/danieljcuesta007/sophia"><img src="https://raw.githubusercontent.com/danieljcuesta007/sophia/main/sophia/icons/icon128.png" width="80" alt="Sophia icon"></a></td>
+<td valign="top">
+
+### [Sophia](https://github.com/danieljcuesta007/sophia): a writing companion for Chrome
+
+Select text on any page for spelling and grammar fixes, better word choices and a
+word-density read. No account, no API key, no network calls.
+
+**[Install from GitHub →](https://github.com/danieljcuesta007/sophia#install-unpacked)** · `Chrome` · `JavaScript`
+
+</td>
+</tr>
+</table>
+
+---
+
 <a href="https://github.com/danieljcuesta007">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/danieljcuesta007/danieljcuesta007/output/contributions-dark.svg">
@@ -128,26 +177,6 @@ reconciles against the bank, and includes an investor room. Every change ships t
 a branch and a pull request: **164 merged** in its first eight days (30 Sep to 7 Oct 2026).
 
 `Cloudflare Pages` · `D1` · `JavaScript` · `Python`
-
-</td>
-</tr>
-
-<tr>
-<td width="120" valign="top"><img src="https://raw.githubusercontent.com/danieljcuesta007/danieljcuesta007/main/icons/cadence.svg" width="100" alt="Cadence icon"></td>
-<td valign="top">
-
-### Cadence
-
-**Dictation for macOS that runs entirely on your machine.** Rust core, Swift interface,
-Whisper for transcription, engineered so no audio ever leaves the device.
-
-Bilingual auto-detection between English and Spanish, a personal dictionary that fixes
-the names it keeps getting wrong, and a dashboard that measures time saved rather than
-words typed.
-
-`Rust` · `Swift` · `Whisper` · `Metal` · `SQLCipher`
-
-**[Source on GitHub →](https://github.com/danieljcuesta007/cadence)**
 
 </td>
 </tr>
