@@ -15,7 +15,7 @@
   <a href="mailto:wednesdaysofwisdom@danielcuesta007.com">Email</a>
 </p>
 
-## Latest from DC Labs
+## LATEST FROM DC LABS
 
 The tools I build for my own work, offered freely to yours. Each is open source and runs
 entirely on your machine, so your work stays private.
