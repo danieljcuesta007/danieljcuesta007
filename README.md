@@ -48,15 +48,15 @@ losing the thread. It picks up exactly where you left off.
 </td>
 </tr>
 <tr>
-<td width="96" valign="top"><a href="https://github.com/danieljcuesta007/sophia"><img src="https://raw.githubusercontent.com/danieljcuesta007/sophia/main/sophia/icons/icon128.png" width="80" alt="Sophia icon"></a></td>
+<td width="96" valign="top"><a href="https://github.com/danieljcuesta007/sophia"><img src="https://raw.githubusercontent.com/danieljcuesta007/sophia/main/extension/sophia/icons/icon128.png" width="80" alt="Sophia icon"></a></td>
 <td valign="top">
 
-### [Sophia](https://github.com/danieljcuesta007/sophia): a writing companion for Chrome
+### [Sophia](https://github.com/danieljcuesta007/sophia): a writing companion for Chrome, and soon your Mac
 
 Select text on any page for spelling and grammar fixes, better word choices and a
 word-density read. No account, no API key, no network calls.
 
-**[Install from GitHub →](https://github.com/danieljcuesta007/sophia#install-unpacked)** · `Chrome` · `JavaScript`
+**[Get Sophia →](https://sophia-writing.pages.dev)** · `Chrome` · `macOS` · `JavaScript` · `Rust` · `Swift`
 
 </td>
 </tr>
