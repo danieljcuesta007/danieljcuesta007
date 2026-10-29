@@ -20,6 +20,8 @@
 The tools I build for my own work, offered freely to yours. Each is open source and runs
 entirely on your machine, so your work stays private.
 
+*Built by DC Labs, a Daniel J. Cuesta company.*
+
 <table>
 <tr>
 <td width="96" valign="top"><a href="https://cadence-dictation.pages.dev"><img src="https://raw.githubusercontent.com/danieljcuesta007/cadence/main/site/art/mark.svg" width="80" alt="Cadence mark"></a></td>
