@@ -50,7 +50,7 @@ with portable Markdown knowledge. Real-project/provider acceptance is still in p
 </td>
 </tr>
 <tr>
-<td width="96" align="center" valign="middle"><a href="https://github.com/danieljcuesta007/sophia"><img src="https://raw.githubusercontent.com/danieljcuesta007/danieljcuesta007/main/icons/sophia-lady-wisdom.png" width="80" alt="Sophia: Lady Wisdom and an open book"></a></td>
+<td width="96" align="center" valign="middle"><a href="https://github.com/danieljcuesta007/sophia"><img src="https://raw.githubusercontent.com/danieljcuesta007/danieljcuesta007/main/icons/sophia-lady-wisdom-white.png" width="80" alt="Sophia: Lady Wisdom and an open book"></a></td>
 <td valign="top">
 
 ### [Sophia](https://github.com/danieljcuesta007/sophia): a writing companion for Chrome, and soon your Mac
