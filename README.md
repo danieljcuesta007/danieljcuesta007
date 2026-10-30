@@ -10,15 +10,15 @@
   <a href="https://danielcuesta007.com">Wednesdays Of Wisdom</a> ·
   <a href="https://addisuna.com">Buy Ethiopian Specialty Coffee</a> ·
   <a href="https://www.linkedin.com/in/danielcuesta007/">LinkedIn</a> ·
-  <a href="https://www.instagram.com/danieljcuesta007/">Instagram</a> ·
-  <a href="https://www.youtube.com/@DanielCuesta007">YouTube</a> ·
+  <a href="https://www.instagram.com/danielcuesta007/">Instagram</a> ·
+  <a href="https://www.youtube.com/@danielcuesta007">YouTube</a> ·
   <a href="mailto:wednesdaysofwisdom@danielcuesta007.com">Email</a>
 </p>
 
 ## LATEST FROM DC LABS
 
-The tools I build for my own work, offered freely to yours. Each is open source and runs
-entirely on your machine, so your work stays private.
+Open-source tools for dictation, writing and portable AI handoffs. Each project documents
+its installation requirements, privacy boundaries and current development stage.
 
 *Built by DC Labs, a Daniel J. Cuesta company.*
 
@@ -42,10 +42,10 @@ entirely on your Mac and works offline, in English and Spanish.
 
 ### [Skeptic](https://github.com/danieljcuesta007/skeptic): your work, your memory, any AI
 
-When Claude runs out of quota mid-task, switch that session to Codex or Hermes without
-losing the thread. It picks up exactly where you left off.
+**Pre-alpha.** A local-first tool for preparing handoffs between AI coding assistants,
+with portable Markdown knowledge. Real-project/provider acceptance is still in progress.
 
-**[Get Skeptic →](https://skeptic.pages.dev)** · `macOS` · `Python` · `Claude Code` · `Codex`
+**[Explore Skeptic →](https://skeptic.pages.dev)** · `macOS` · `Python` · `Claude Code` · `Codex`
 
 </td>
 </tr>
@@ -55,10 +55,11 @@ losing the thread. It picks up exactly where you left off.
 
 ### [Sophia](https://github.com/danieljcuesta007/sophia): a writing companion for Chrome, and soon your Mac
 
-Select text on any page for spelling and grammar fixes, better word choices and a
-word-density read. No account, no API key, no network calls.
+**Preview.** The Chrome extension checks spelling, grammar, word choices and word density
+locally, with no account or API key. Install it unpacked from source; the Mac app is
+still in development and has no packaged download.
 
-**[Get Sophia →](https://sophia-writing.pages.dev)** · `Chrome` · `macOS` · `JavaScript` · `Rust` · `Swift`
+**[Explore the preview →](https://sophia-writing.pages.dev)** · `Chrome` · `macOS` · `JavaScript` · `Rust` · `Swift`
 
 </td>
 </tr>
@@ -97,8 +98,7 @@ own site, organised by theme and motif.
 
 The site is engineered from scratch: Astro on Cloudflare Pages, with site-wide search, a
 related-letters graph that links each letter to the ones it grew out of, and an original
-illustrated universe of characters behind the art. By October 2026 the site had
-**471 commits** and **102 merged pull requests** behind it.
+illustrated universe of characters behind the art.
 
 `Substack` · `Writing` · `Astro` · `Cloudflare Pages`
 
@@ -127,9 +127,9 @@ a light roast. The beans come from Ethiopia and are roasted locally in partnersh
 Quad Coffee Lab.
 
 I run the brand, the website and the systems behind them: the Shopify storefront, its
-search and AI visibility, and the books. The storefront theme is versioned on GitHub:
-**347 commits** and **38 merged pull requests** by October 2026, including a mobile
-speed pass that took its Lighthouse score from 46 to 70.
+search and AI visibility, and the books. The storefront theme is versioned on GitHub,
+including a mobile speed pass that took its Lighthouse score from 46 to 70
+(measured October 2026).
 
 `Founder` · `Brand` · `Shopify` · `SEO`
 
@@ -175,8 +175,8 @@ products, plus mobility support for three children who need it.
 
 The company's single source of truth for to-dos, people, finances and inventory, built
 and maintained with Izaiah. It runs on Cloudflare Pages and D1 behind single sign-on,
-reconciles against the bank, and includes an investor room. Every change ships through
-a branch and a pull request: **164 merged** in its first eight days (30 Sep to 7 Oct 2026).
+reconciles against the bank, and includes an investor room. Changes ship through
+branches and reviewed pull requests.
 
 `Cloudflare Pages` · `D1` · `JavaScript` · `Python`
 
@@ -206,6 +206,13 @@ Client work, a team capstone called AskRX, and a portfolio of what I learned alo
 </table>
 
 ---
+
+### Try a tool or contribute
+
+- **Dictation:** [download Cadence](https://github.com/danieljcuesta007/cadence/releases/latest).
+- **Early testing:** read the current limitations in [Skeptic](https://github.com/danieljcuesta007/skeptic#readme) or [Sophia](https://github.com/danieljcuesta007/sophia#readme) before trying a preview.
+- **Feedback:** open an issue in the relevant repository with your OS/app version, steps to reproduce, and expected versus actual behavior. Remove private text and credentials from examples.
+- **Contributions:** documentation fixes and reproducible bug reports are useful starting points; discuss substantial changes in an issue before implementing them.
 
 ### Get in touch
 
